@@ -1,0 +1,60 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "boot_wait": "1m",
+      "boot_command": [
+        "root<enter>",
+        "stop sshd<enter>",
+        "fdisk /dev/sda<enter>",
+        "n",
+        "<enter><enter><enter><enter><enter>",
+        "a<enter>",
+        "1<enter>",
+        "w<enter>",
+        "<wait>",
+        "mkfs.ext4 -j -L nixos /dev/sda1<enter><wait5>",
+        "mount LABEL=nixos /mnt<enter><wait>",
+        "nixos-generate-config --root /mnt<enter><wait>",
+        "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/configuration.nix > /mnt/etc/nixos/configuration.nix<enter><wait>",
+        "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/guest.nix > /mnt/etc/nixos/guest.nix<enter><wait>",
+        "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/graphical.nix > /mnt/etc/nixos/graphical.nix<enter><wait>",
+        "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/users.nix > /mnt/etc/nixos/users.nix<enter><wait>",
+        "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/vagrant.nix > /mnt/etc/nixos/vagrant.nix<enter><wait>",
+        "mkdir -p /mnt/etc/nixos/vagrant/biosdevname"
+        "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/vagrant/biosdevname/default.nix > /mnt/etc/nixos/vagrant/biosdevname/default.nix<enter><wait>",
+        "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/vagrant/biosdevname/makefile.patch > /mnt/etc/nixos/vagrant/biosdevname/makefile.patch<enter><wait>",
+        "nixos-install && reboot<enter>"
+      ],
+      "guest_additions_mode": "disable",
+      "guest_os_type": "Linux_64",
+      "http_directory": "nixos",
+      "iso_checksum": "a6896ebf49a571abc3ba1482aebd3bbdbafe479273ab3a8b1be664fd3bc7bfa2",
+      "iso_checksum_type": "sha256",
+      "iso_url": "http://releases.nixos.org/nixos/14.04/nixos-14.04.195.8d6688d/nixos-minimal-14.04.195.8d6688d-x86_64-linux.iso",
+      "shutdown_command": "sudo shutdown -h now",
+      "ssh_username": "root",
+      "ssh_key_path": "keys/vagrant.key",
+      "ssh_wait_timeout": "20m",
+      "virtualbox_version_file": ".vbox_version",
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--memory", "1024"],
+        ["modifyvm", "{{.Name}}", "--cpus", "2"]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "sudo sh '{{.Path}}'",
+      "script": "scripts/postinstall.sh"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "output": "nixos-14.02-x86_64-{{.Provider}}.box"
+    }
+  ]
+}
+
