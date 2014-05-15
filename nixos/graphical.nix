@@ -12,6 +12,5 @@
 
   environment.systemPackages = [ pkgs.glxinfo ];
 
-  #hardware.opengl.videoDrivers = mkOverride 40 [ "virtualbox" "vmware" "cirrus" "vesa" ];
   hardware.opengl.videoDrivers = mkOverride 40 [ "virtualbox" ];
 }
