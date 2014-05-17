@@ -1,6 +1,3 @@
-# This module defines a NixOS configuration that contains X11 and
-# KDE 4.  It's used by the graphical installation CD.
-
 { config, pkgs, ... }:
 
 {
@@ -12,5 +9,5 @@
 
   environment.systemPackages = [ pkgs.glxinfo ];
 
-  hardware.opengl.videoDrivers = mkOverride 40 [ "virtualbox" ];
+  hardware.opengl.videoDrivers = [ "virtualbox" ];
 }
