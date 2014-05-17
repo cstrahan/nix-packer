@@ -8,8 +8,6 @@
       {
         name            = "vagrant";
         description     = "Vagrant User";
-        uid             = 1000;
-        isSystemUser    = false;
         group           = "vagrant";
         extraGroups     = [ "users" "vboxsf" "wheel" ];
         password        = "vagrant";

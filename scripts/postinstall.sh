@@ -5,11 +5,18 @@ set -x
 
 nix-channel --remove nixos
 nix-channel --add https://nixos.org/channels/nixos-14.04/ nixos
-nixos-rebuild switch --upgrade
 
-# See: https://github.com/NixOS/nixpkgs/pull/2675
-# The users are now created, so we can safely remove this line:
-sed -i '/DELETE ME/d' /etc/nixos/configuration.nix
+# Attempt to rebuild, but fail due to https://github.com/NixOS/nixpkgs/pull/2675
+# then create the user manually,
+# then run rebuild again.
+nixos-rebuild switch --upgrade || true
+useradd \
+  -g "vagrant" \
+  -G "users,vboxsf,wheel" \
+  -s "/run/current-system/sw/bin/bash" \
+  -d "/home/vagrant" \
+  "vagrant"
+nixos-rebuild switch --upgrade
 
 # Prevent collection of utilities needed by the Vagrant plugin.
 mkdir -p /etc/nixos/vagrant

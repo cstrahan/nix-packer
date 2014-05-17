@@ -9,7 +9,6 @@
   ];
 
   nix.useChroot = true;
-  users.mutableUsers = false; # DELETE ME (see https://github.com/NixOS/nixpkgs/pull/2675))
 
   nixpkgs.config = {
     packageOverrides = pkgs: {
