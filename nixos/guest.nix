@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  boot.kernelModules = [ "vboxsf" ];
+  # Enable guest additions.
+  services.virtualbox.enable = true;
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;

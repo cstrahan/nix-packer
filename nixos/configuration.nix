@@ -9,13 +9,12 @@
   ];
 
   nix.useChroot = true;
+  users.mutableUsers = false; # DELETE ME (see https://github.com/NixOS/nixpkgs/pull/2675))
 
   nixpkgs.config = {
     packageOverrides = pkgs: {
       # https://github.com/NixOS/nixpkgs/pull/2653
-      mkpasswd = if (pkgs.stdenv.lib.versionOlder pkgs.mkpasswd.version "5.1.2")
-        then pkgs.callPackage ./vagrant/pkgs/mkpasswd { }
-        else pkgs.mkpasswd;
+      mkpasswd = pkgs.callPackage ./vagrant/pkgs/mkpasswd { };
     };
   };
 }

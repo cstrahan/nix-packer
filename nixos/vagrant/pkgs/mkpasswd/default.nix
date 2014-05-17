@@ -2,18 +2,18 @@
 # The Debian maintainers removed the download for version 5.1.1,
 # breaking nixos-install.
 # https://github.com/NixOS/nixpkgs/pull/2653
-{ stdenv, fetchurl, perl }:
+{ stdenv, fetchgit }:
+
 stdenv.mkDerivation rec {
   name = "mkpasswd-${version}";
 
-  version = "5.1.2";
+  version = "5.1.1";
 
-  src = fetchurl {
-    url = "http://ftp.debian.org/debian/pool/main/w/whois/whois_${version}.tar.xz";
-    sha256 = "021f76910e772fa569e299210b36e2eeb20b56dc9ca29edb7e83a21b560a5403";
+  src = fetchgit {
+    url = https://github.com/rfc1036/whois.git;
+    rev = "refs/tags/v${version}";
+    sha256 = "1546vz05kzi93y9ii2yi6aqdzsprj8c1w9a2gjpkigxxxxzhxi4y";
   };
-
-  buildInputs = [ perl ];
 
   preConfigure = ''
     substituteInPlace Makefile --replace "prefix = /usr" "prefix = $out"
