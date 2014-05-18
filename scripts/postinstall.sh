@@ -16,6 +16,7 @@ useradd \
   -s "/run/current-system/sw/bin/bash" \
   -d "/home/vagrant" \
   "vagrant"
+echo "vagrant:vagrant" | chpasswd
 nixos-rebuild switch --upgrade
 
 # Cleanup any previous generations and delete old packages.
