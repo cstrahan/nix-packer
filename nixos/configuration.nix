@@ -3,6 +3,7 @@
 {
   imports = [ 
     ./hardware-configuration.nix 
+    ./graphical.nix
     ./guest.nix
     ./users.nix
     ./vagrant-network.nix

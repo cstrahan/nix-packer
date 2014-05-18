@@ -28,4 +28,9 @@ mkdir -p /mnt/etc/nixos/vagrant/pkgs/{biosdevname,mkpasswd}
 curl http://$HTTP_IP:$HTTP_PORT/vagrant/pkgs/biosdevname/default.nix > /mnt/etc/nixos/vagrant/pkgs/biosdevname/default.nix
 curl http://$HTTP_IP:$HTTP_PORT/vagrant/pkgs/biosdevname/makefile.patch > /mnt/etc/nixos/vagrant/pkgs/biosdevname/makefile.patch
 curl http://$HTTP_IP:$HTTP_PORT/vagrant/pkgs/mkpasswd/default.nix > /mnt/etc/nixos/vagrant/pkgs/mkpasswd/default.nix
+
+if [ -z "$GRAPHICAL" ]; then
+  sed -i '/graphical\.nix/d' /mnt/etc/nixos/configuration.nix
+fi
+
 nixos-install && reboot
