@@ -22,7 +22,8 @@ curl http://$HTTP_IP:$HTTP_PORT/configuration.nix > /mnt/etc/nixos/configuration
 curl http://$HTTP_IP:$HTTP_PORT/guest.nix > /mnt/etc/nixos/guest.nix
 curl http://$HTTP_IP:$HTTP_PORT/graphical.nix > /mnt/etc/nixos/graphical.nix
 curl http://$HTTP_IP:$HTTP_PORT/users.nix > /mnt/etc/nixos/users.nix
-curl http://$HTTP_IP:$HTTP_PORT/vagrant.nix > /mnt/etc/nixos/vagrant.nix
+curl http://$HTTP_IP:$HTTP_PORT/vagrant-hostname.nix > /mnt/etc/nixos/vagrant-hostname.nix
+curl http://$HTTP_IP:$HTTP_PORT/vagrant-network.nix > /mnt/etc/nixos/vagrant-network.nix
 mkdir -p /mnt/etc/nixos/vagrant/pkgs/{biosdevname,mkpasswd}
 curl http://$HTTP_IP:$HTTP_PORT/vagrant/pkgs/biosdevname/default.nix > /mnt/etc/nixos/vagrant/pkgs/biosdevname/default.nix
 curl http://$HTTP_IP:$HTTP_PORT/vagrant/pkgs/biosdevname/makefile.patch > /mnt/etc/nixos/vagrant/pkgs/biosdevname/makefile.patch

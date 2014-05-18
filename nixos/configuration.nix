@@ -5,7 +5,8 @@
     ./hardware-configuration.nix 
     ./guest.nix
     ./users.nix
-    ./vagrant.nix
+    ./vagrant-network.nix
+    ./vagrant-hostname.nix
   ];
 
   nix.useChroot = true;

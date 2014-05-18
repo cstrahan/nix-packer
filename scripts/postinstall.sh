@@ -34,6 +34,9 @@ if [ -f /home/vagrant/.bash_history ]; then
   rm /home/vagrant/.bash_history
 fi
 
+# Clear temporary folder
+rm -rf /tmp/*
+
 # Truncate the logs.
 #find /var/log -type f | while read f; do echo -ne '' > $f; done;
 
