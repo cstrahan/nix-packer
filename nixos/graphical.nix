@@ -9,5 +9,5 @@
 
   environment.systemPackages = [ pkgs.glxinfo ];
 
-  hardware.opengl.videoDrivers = [ "virtualbox" ];
+  services.xserver.videoDrivers = [ "virtualbox" ];
 }
