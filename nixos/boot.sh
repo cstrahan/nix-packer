@@ -3,9 +3,6 @@ stop sshd
 set -e
 set -x
 
-echo "HTTP_IP:   $HTTP_IP\nHTTP_PORT: $HTTP_PORT"
-sleep 5
-
 echo "n
 
 
