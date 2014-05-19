@@ -3,15 +3,25 @@ stop sshd
 set -e
 set -x
 
-echo "n
+printChars () {
+  for c in "$@"
+  do
+    printf "$c"
+  done
+}
 
+printChars \
+  "n"  \
+  "\n" \
+  "\n" \
+  "\n" \
+  "\n" \
+  "\n" \
+  "a"  \
+  "1"  \
+  "w"  \
+  "\n" | fdisk /dev/sda
 
-
-
-a
-1
-w
-" | fdisk /dev/sda
 mkfs.ext4 -j -L nixos /dev/sda1
 mount LABEL=nixos /mnt
 nixos-generate-config --root /mnt
