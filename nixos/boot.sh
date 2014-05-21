@@ -18,7 +18,9 @@ printChars \
   "\n" \
   "\n" \
   "a"  \
+  "\n" \
   "1"  \
+  "\n" \
   "w"  \
   "\n" | fdisk /dev/sda
 
