@@ -3,26 +3,15 @@ stop sshd
 set -e
 set -x
 
-printChars () {
-  for c in "$@"
-  do
-    printf "$c"
-  done
-}
+echo "n
 
-printChars \
-  "n"  \
-  "\n" \
-  "\n" \
-  "\n" \
-  "\n" \
-  "\n" \
-  "a"  \
-  "\n" \
-  "1"  \
-  "\n" \
-  "w"  \
-  "\n" | fdisk /dev/sda
+
+
+
+a
+1
+w
+" | fdisk /dev/sda
 
 mkfs.ext4 -j -L nixos /dev/sda1
 mount LABEL=nixos /mnt
