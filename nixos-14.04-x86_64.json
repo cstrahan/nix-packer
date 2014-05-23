@@ -4,6 +4,7 @@
   },
   "builders": [
     {
+      "vm_name": "nixos-14.04-x86_64",
       "type": "virtualbox-iso",
       "boot_wait": "0.7m",
       "boot_command": [
