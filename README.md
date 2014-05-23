@@ -25,3 +25,28 @@ Vagrant.configure("2") do |config|
   end
 end
 ```
+
+# Building
+
+If you want to customize the box, there are a couple
+[variables](http://www.packer.io/docs/templates/user-variables.html) you can
+pass to Packer:
+
+* `swap_size` - The size of the swap partition in megabytes. If this is empty (the
+  default), no swap partition is created.
+* `disk_size` - The total size of the hard disk in megabytes (defaults
+  to 40000).
+
+There are also a couple variables that only effect the build:
+
+* `memmory_size` - The amount of RAM in megabytes (defaults to 1024).
+* `cpus` - The number of CPUs (defaults to 1).
+
+Example:
+
+``` bash
+$ packer build            \
+    -var 'cpus=2'         \
+    -var 'swap_size=2000' \
+    nixos-14.04-x86_64.json
+```
