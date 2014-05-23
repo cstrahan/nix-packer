@@ -1,12 +1,16 @@
 {
+  "variables": {
+    "swap": ""
+  },
   "builders": [
     {
       "type": "virtualbox-iso",
-      "boot_wait": "1m",
+      "boot_wait": "0.7m",
       "boot_command": [
         "root<enter>",
         "export HTTP_IP={{ .HTTPIP }}<enter>",
         "export HTTP_PORT={{ .HTTPPort }}<enter>",
+        "export SWAP=\"{{ user `swap` }}\"<enter>",
         "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/boot.sh -s > boot.sh<enter><wait>",
         "sh boot.sh<enter><wait>"
       ],
