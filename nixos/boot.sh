@@ -30,7 +30,7 @@ p
 
 
 w
-" | fdisk /dev/sda | less
+" | fdisk /dev/sda
   mkswap -L swap /dev/sda2
   swapon /dev/sda2
 fi
