@@ -1,14 +1,16 @@
 {
   "variables": {
-    "swap_size": "",
-    "disk_size": "40000",
+    "swap_size":    "",
+    "disk_size":    "40000",
+    "memmory_size": "1024",
+    "cpus":         "1"
   },
   "builders": [
     {
       "type": "virtualbox-iso",
       "vm_name": "nixos-14.04-x86_64",
       "guest_os_type": "Linux_64",
-      "disk_size": "{{user `disk_size`}}",
+      "disk_size": "{{ user `disk_size` }}",
       "boot_wait": "0.7m",
       "boot_command": [
         "root<enter>",
@@ -29,8 +31,8 @@
       "virtualbox_version_file": ".vbox_version",
       "guest_additions_mode": "disable",
       "vboxmanage": [
-        ["modifyvm", "{{.Name}}", "--memory", "1024"],
-        ["modifyvm", "{{.Name}}", "--cpus", "2"]
+        ["modifyvm", "{{.Name}}", "--memory", "{{ user `memmory_size` }}"],
+        ["modifyvm", "{{.Name}}", "--cpus", "{{ user `cpus` }}"]
       ]
     }
   ],
