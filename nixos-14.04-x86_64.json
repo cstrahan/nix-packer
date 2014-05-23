@@ -1,22 +1,23 @@
 {
   "variables": {
-    "swap": ""
+    "swap_size": "",
+    "disk_size": "40000",
   },
   "builders": [
     {
-      "vm_name": "nixos-14.04-x86_64",
       "type": "virtualbox-iso",
+      "vm_name": "nixos-14.04-x86_64",
+      "guest_os_type": "Linux_64",
+      "disk_size": "{{user `disk_size`}}",
       "boot_wait": "0.7m",
       "boot_command": [
         "root<enter>",
         "export HTTP_IP={{ .HTTPIP }}<enter>",
         "export HTTP_PORT={{ .HTTPPort }}<enter>",
-        "export SWAP=\"{{ user `swap` }}\"<enter>",
+        "export SWAP=\"{{ user `swap_size` }}\"<enter>",
         "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/boot.sh -s > boot.sh<enter><wait>",
         "sh boot.sh<enter><wait>"
       ],
-      "guest_additions_mode": "disable",
-      "guest_os_type": "Linux_64",
       "http_directory": "nixos",
       "iso_checksum": "81b509cf265526d93e7bd974c1b604904cf8aff1a53900a06f783c1c28447a76",
       "iso_checksum_type": "sha256",
@@ -26,6 +27,7 @@
       "ssh_key_path": "keys/vagrant.key",
       "ssh_wait_timeout": "20m",
       "virtualbox_version_file": ".vbox_version",
+      "guest_additions_mode": "disable",
       "vboxmanage": [
         ["modifyvm", "{{.Name}}", "--memory", "1024"],
         ["modifyvm", "{{.Name}}", "--cpus", "2"]
