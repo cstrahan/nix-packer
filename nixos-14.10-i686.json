@@ -7,7 +7,8 @@
     "vm_name":           "nixos-14.10-i686",
     "iso_url":           "http://releases.nixos.org/nixos/unstable/nixos-14.10pre44201.421e853/nixos-minimal-14.10pre44201.421e853-i686-linux.iso",
     "iso_checksum_type": "sha256",
-    "iso_checksum":      "4e5d40d70c315fa771969ebd510b6b3672f098064fab485c1569dded456eb474"
+    "iso_checksum":      "4e5d40d70c315fa771969ebd510b6b3672f098064fab485c1569dded456eb474",
+    "nixos_channel":     "https://nixos.org/channels/nixos-unstable"
   },
   "builders": [
     {

@@ -14,6 +14,7 @@ ISOS.each do |name, attrs|
   template.gsub!("@ISO_URL@",       attrs["url"])
   template.gsub!("@ISO_CHECKSUM@",  attrs["sha256"])
   template.gsub!("@GUEST_OS_TYPE@", attrs["guest_os_type"])
+  template.gsub!("@NIXOS_CHANNEL@", attrs["channel"])
 
   File.open("#{name}.json", "w") do |f|
     f.write(template)

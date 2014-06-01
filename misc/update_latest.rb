@@ -35,8 +35,10 @@ url = page.scan(/<a href="(nixos-14.04[^"]+\/)"/).flatten.last
 page = fetch("http://releases.nixos.org/nixos/14.04/#{url}")
 iso_name = page.scan(/<a href="(nixos-minimal-[^"]+-x86_64-linux.iso)"/).flatten.first
 ISOS["nixos-14.04-x86_64"]["url"] = "http://releases.nixos.org/nixos/14.04/#{url}#{iso_name}"
+ISOS["nixos-14.04-x86_64"]["channel"] = "https://nixos.org/channels/nixos-14.04"
 iso_name = page.scan(/<a href="(nixos-minimal-[^"]+-i686-linux.iso)"/).flatten.first
 ISOS["nixos-14.04-i686"]["url"] = "http://releases.nixos.org/nixos/14.04/#{url}#{iso_name}"
+ISOS["nixos-14.04-i686"]["channel"] = "https://nixos.org/channels/nixos-14.04"
 
 # get unstable urls
 page = fetch("http://releases.nixos.org/nixos/unstable/")
@@ -44,8 +46,10 @@ url = page.scan(/<a href="(nixos-14.10[^"]+\/)"/).flatten.last
 page = fetch("http://releases.nixos.org/nixos/unstable/#{url}")
 iso_name = page.scan(/<a href="(nixos-minimal-[^"]+-x86_64-linux.iso)"/).flatten.first
 ISOS["nixos-14.10-x86_64"]["url"] = "http://releases.nixos.org/nixos/unstable/#{url}#{iso_name}"
+ISOS["nixos-14.10-x86_64"]["channel"] = "https://nixos.org/channels/nixos-unstable"
 iso_name = page.scan(/<a href="(nixos-minimal-[^"]+-i686-linux.iso)"/).flatten.first
 ISOS["nixos-14.10-i686"]["url"] = "http://releases.nixos.org/nixos/unstable/#{url}#{iso_name}"
+ISOS["nixos-14.10-i686"]["channel"] = "https://nixos.org/channels/nixos-unstable"
 
 # set guest_os_type
 ISOS.each do |k,v|
