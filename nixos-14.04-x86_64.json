@@ -22,6 +22,7 @@
         "export HTTP_IP={{ .HTTPIP }}<enter>",
         "export HTTP_PORT={{ .HTTPPort }}<enter>",
         "export SWAP=\"{{ user `swap_size` }}\"<enter>",
+        "export NIXOS_CHANNEL=\"{{ user `nixos_channel` }}\"<enter>",
         "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/boot.sh -s > boot.sh<enter><wait>",
         "sh boot.sh<enter><wait>"
       ],
@@ -30,9 +31,9 @@
       "iso_checksum_type": "{{ user `iso_checksum_type` }}",
       "iso_checksum": "{{ user `iso_checksum` }}",
       "shutdown_command": "sudo shutdown -h now",
-      "ssh_username": "root",
+      "ssh_username": "vagrant",
       "ssh_key_path": "keys/vagrant.key",
-      "ssh_wait_timeout": "20m",
+      "ssh_wait_timeout": "25m",
       "virtualbox_version_file": ".vbox_version",
       "guest_additions_mode": "disable",
       "vboxmanage": [

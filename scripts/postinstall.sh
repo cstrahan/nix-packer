@@ -3,20 +3,7 @@
 set -e
 set -x
 
-nix-channel --remove nixos
-nix-channel --add https://nixos.org/channels/nixos-14.04/ nixos
-
-# Attempt to rebuild, but fail due to https://github.com/NixOS/nixpkgs/pull/2675
-# then create the user manually,
-# then run rebuild again.
-nixos-rebuild switch --upgrade || true
-useradd \
-  -g "vagrant" \
-  -G "users,vboxsf,wheel" \
-  -s "/run/current-system/sw/bin/bash" \
-  -d "/home/vagrant" \
-  "vagrant"
-echo "vagrant:vagrant" | chpasswd
+# Upgrade.
 nixos-rebuild switch --upgrade
 
 # Cleanup any previous generations and delete old packages.
