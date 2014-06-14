@@ -12,15 +12,15 @@
     "sha256": "97201b0c4572c21e32b15c16886c8c55a2f0c08b74827381eec546e94fc3cafd"
   },
   "nixos-14.10-x86_64": {
-    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre44201.421e853/nixos-minimal-14.10pre44201.421e853-x86_64-linux.iso",
+    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre44331.25351dd/nixos-minimal-14.10pre44331.25351dd-x86_64-linux.iso",
     "channel": "https://nixos.org/channels/nixos-unstable",
     "guest_os_type": "Linux_64",
-    "sha256": "06cfe948dd2e1a3534d7edc0fadff2ae0c51197f7cb34959a3ab2d1f09977449"
+    "sha256": "357f8c768d41e17508e0503117b7ff158bdfa86ea70097debce28f7e1939df17"
   },
   "nixos-14.10-i686": {
-    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre44201.421e853/nixos-minimal-14.10pre44201.421e853-i686-linux.iso",
+    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre44331.25351dd/nixos-minimal-14.10pre44331.25351dd-i686-linux.iso",
     "channel": "https://nixos.org/channels/nixos-unstable",
     "guest_os_type": "Linux",
-    "sha256": "4e5d40d70c315fa771969ebd510b6b3672f098064fab485c1569dded456eb474"
+    "sha256": "80a884c4683975fd3ee449f35316eca0789deebe115586016cb226f383422160"
   }
 }
