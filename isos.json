@@ -1,26 +1,26 @@
 {
   "nixos-14.04-x86_64": {
-    "url": "http://releases.nixos.org/nixos/14.04/nixos-14.04.42703.fcdf7e8/nixos-minimal-14.04.42703.fcdf7e8-x86_64-linux.iso",
+    "url": "http://releases.nixos.org/nixos/14.04/nixos-14.04.357.67b4e3f/nixos-minimal-14.04.357.67b4e3f-x86_64-linux.iso",
     "channel": "https://nixos.org/channels/nixos-14.04",
     "guest_os_type": "Linux_64",
-    "sha256": "c8598643cd61c93d79ee36eae1887de6af2c14baf76b4089d71205d3f7a103e9"
+    "sha256": "56702c16cf2a476e391cc38b8ac187b849dba63004b145b139277acfc0d11c8a"
   },
   "nixos-14.04-i686": {
-    "url": "http://releases.nixos.org/nixos/14.04/nixos-14.04.42703.fcdf7e8/nixos-minimal-14.04.42703.fcdf7e8-i686-linux.iso",
+    "url": "http://releases.nixos.org/nixos/14.04/nixos-14.04.357.67b4e3f/nixos-minimal-14.04.357.67b4e3f-i686-linux.iso",
     "channel": "https://nixos.org/channels/nixos-14.04",
     "guest_os_type": "Linux",
-    "sha256": "97201b0c4572c21e32b15c16886c8c55a2f0c08b74827381eec546e94fc3cafd"
+    "sha256": "814a125ede4c9dde0db85e5a7190183e7b6f86bb85e158c5a116855d990894a0"
   },
   "nixos-14.10-x86_64": {
-    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre44331.25351dd/nixos-minimal-14.10pre44331.25351dd-x86_64-linux.iso",
+    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre45412.7e20124/nixos-minimal-14.10pre45412.7e20124-x86_64-linux.iso",
     "channel": "https://nixos.org/channels/nixos-unstable",
     "guest_os_type": "Linux_64",
-    "sha256": "357f8c768d41e17508e0503117b7ff158bdfa86ea70097debce28f7e1939df17"
+    "sha256": "f6ebe843ce8a5503302281d07aa6fba9b4cc99d4e357a4a24b494acfe6e97d30"
   },
   "nixos-14.10-i686": {
-    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre44331.25351dd/nixos-minimal-14.10pre44331.25351dd-i686-linux.iso",
+    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre45412.7e20124/nixos-minimal-14.10pre45412.7e20124-i686-linux.iso",
     "channel": "https://nixos.org/channels/nixos-unstable",
     "guest_os_type": "Linux",
-    "sha256": "80a884c4683975fd3ee449f35316eca0789deebe115586016cb226f383422160"
+    "sha256": "1a538adff9548db87d59577467eacc248a3885d11953f451ae3a47a6ab34a807"
   }
 }
