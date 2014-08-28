@@ -61,6 +61,5 @@ nixos-install
 
 printf "%s nixos" "$NIXOS_CHANNEL" > /mnt/root/.nix-channels
 
-fsync
 sleep 2
 reboot -f
