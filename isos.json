@@ -1,26 +1,26 @@
 {
   "nixos-14.04-x86_64": {
-    "url": "http://releases.nixos.org/nixos/14.04/nixos-14.04.449.e64237c/nixos-minimal-14.04.449.e64237c-x86_64-linux.iso",
+    "url": "http://releases.nixos.org/nixos/14.04/nixos-14.04.482.ef2f94c/nixos-minimal-14.04.482.ef2f94c-x86_64-linux.iso",
     "channel": "https://nixos.org/channels/nixos-14.04",
     "guest_os_type": "Linux_64",
-    "sha256": "144d973f68ddb72f465d90960f49613c91f11bec6b8f6dcff1e72579cbf88a31"
+    "sha256": "45a237e3406bbf0c07106d8ae57c1d3676d348294841547eab3b68482111f8f8"
   },
   "nixos-14.04-i686": {
-    "url": "http://releases.nixos.org/nixos/14.04/nixos-14.04.449.e64237c/nixos-minimal-14.04.449.e64237c-i686-linux.iso",
+    "url": "http://releases.nixos.org/nixos/14.04/nixos-14.04.482.ef2f94c/nixos-minimal-14.04.482.ef2f94c-i686-linux.iso",
     "channel": "https://nixos.org/channels/nixos-14.04",
     "guest_os_type": "Linux",
-    "sha256": "a6818a6faebc458b0af629acbc3d8a743224116a9181421ee0e7f6c99d6e69a8"
+    "sha256": "ded8e42c571737f089de57561b5dede1147afe1ae900a04a58f9938c8e88bbb4"
   },
   "nixos-14.10-x86_64": {
-    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre47389.477eb18/nixos-minimal-14.10pre47389.477eb18-x86_64-linux.iso",
+    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre49475.74f6be0/nixos-minimal-14.10pre49475.74f6be0-x86_64-linux.iso",
     "channel": "https://nixos.org/channels/nixos-unstable",
     "guest_os_type": "Linux_64",
-    "sha256": "ec550daa1a1bf075aae1baf6578d42a18f3dcedca69f0a617587ba17e43a2707"
+    "sha256": "f4711871073f4a79d31e1d5f529b988dd16d11a1b912bd1fb892e217662dd72c"
   },
   "nixos-14.10-i686": {
-    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre47389.477eb18/nixos-minimal-14.10pre47389.477eb18-i686-linux.iso",
+    "url": "http://releases.nixos.org/nixos/unstable/nixos-14.10pre49475.74f6be0/nixos-minimal-14.10pre49475.74f6be0-i686-linux.iso",
     "channel": "https://nixos.org/channels/nixos-unstable",
     "guest_os_type": "Linux",
-    "sha256": "4f3f3ab58dbbe6762f2658a5994f4e5b58c3046296080827ad5ddf607235f424"
+    "sha256": "3be04e0fb814bab05a0bc86e507ebdc106497f13103756b19af6a279a25bca34"
   }
 }

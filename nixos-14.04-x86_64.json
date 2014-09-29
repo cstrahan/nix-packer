@@ -5,9 +5,9 @@
     "memmory_size":      "1024",
     "cpus":              "1",
     "vm_name":           "nixos-14.04-x86_64",
-    "iso_url":           "http://releases.nixos.org/nixos/14.04/nixos-14.04.449.e64237c/nixos-minimal-14.04.449.e64237c-x86_64-linux.iso",
+    "iso_url":           "http://releases.nixos.org/nixos/14.04/nixos-14.04.482.ef2f94c/nixos-minimal-14.04.482.ef2f94c-x86_64-linux.iso",
     "iso_checksum_type": "sha256",
-    "iso_checksum":      "144d973f68ddb72f465d90960f49613c91f11bec6b8f6dcff1e72579cbf88a31",
+    "iso_checksum":      "45a237e3406bbf0c07106d8ae57c1d3676d348294841547eab3b68482111f8f8",
     "nixos_channel":     "https://nixos.org/channels/nixos-14.04"
   },
   "builders": [
