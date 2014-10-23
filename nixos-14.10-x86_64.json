@@ -23,8 +23,7 @@
         "export HTTP_PORT={{ .HTTPPort }}<enter>",
         "export SWAP=\"{{ user `swap_size` }}\"<enter>",
         "export NIXOS_CHANNEL=\"{{ user `nixos_channel` }}\"<enter>",
-        "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/boot.sh -s > boot.sh<enter><wait>",
-        "sh boot.sh<enter><wait>"
+        "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/boot.sh -s | bash<enter><wait>"
       ],
       "http_directory": "nixos",
       "iso_url": "{{ user `iso_url` }}",
