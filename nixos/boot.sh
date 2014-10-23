@@ -7,7 +7,7 @@ nix-channel --update
 
 # Assuming a single disk (/dev/sda).
 MB="1048576"
-DISK_SIZE=`fdisk -l | grep ^Disk | awk -F" "  '{ print $5 }'`
+DISK_SIZE=`fdisk -l | grep ^Disk | awk -F" "  '{ print $5 }' | head -n 1`
 DISK_SIZE=$(($DISK_SIZE / $MB))
 
 # Create partitions.
@@ -52,6 +52,7 @@ curl http://$HTTP_IP:$HTTP_PORT/graphical.nix > /mnt/etc/nixos/graphical.nix
 curl http://$HTTP_IP:$HTTP_PORT/users.nix > /mnt/etc/nixos/users.nix
 curl http://$HTTP_IP:$HTTP_PORT/vagrant-hostname.nix > /mnt/etc/nixos/vagrant-hostname.nix
 curl http://$HTTP_IP:$HTTP_PORT/vagrant-network.nix > /mnt/etc/nixos/vagrant-network.nix
+curl http://$HTTP_IP:$HTTP_PORT/vagrant.nix > /mnt/etc/nixos/vagrant.nix
 
 if [ -z "$GRAPHICAL" ]; then
   sed -i '/graphical\.nix/d' /mnt/etc/nixos/configuration.nix
