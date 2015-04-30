@@ -1,0 +1,55 @@
+{
+  "variables": {
+    "graphical":         "",
+    "swap_size":         "",
+    "disk_size":         "2000",
+    "memory_size":       "1024",
+    "cpus":              "1",
+    "vm_name":           "nixos-stable-x86_64",
+    "iso_url":           "https://nixos.org/releases/nixos/14.12/nixos-14.12.496.5f7d374/nixos-minimal-14.12.496.5f7d374-x86_64-linux.iso",
+    "iso_checksum_type": "sha256",
+    "iso_checksum":      "933aab9ddd3d02ea669313fb31a69e631d038926b1af03624e2602a9f78389bf"
+  },
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "vm_name": "{{ user `vm_name` }}",
+      "guest_os_type": "Linux_64",
+      "disk_size": "{{ user `disk_size` }}",
+      "boot_wait": "0.7m",
+      "boot_command": [
+        "root<enter>",
+        "export HTTP_IP={{ .HTTPIP }} HTTP_PORT={{ .HTTPPort }}<enter>",
+        "export SWAP=\"{{ user `swap_size` }}\" GRAPHICAL={{ user `graphical`}}<enter>",
+        "curl http://{{ .HTTPIP }}:{{ .HTTPPort }}/boot.sh -s > first-boot.sh && sh first-boot.sh<enter><wait>"
+      ],
+      "http_directory": "nixos",
+      "iso_url": "{{ user `iso_url` }}",
+      "iso_checksum_type": "{{ user `iso_checksum_type` }}",
+      "iso_checksum": "{{ user `iso_checksum` }}",
+      "shutdown_command": "sudo shutdown -h now",
+      "ssh_username": "vagrant",
+      "ssh_key_path": "keys/vagrant.key",
+      "ssh_wait_timeout": "25m",
+      "virtualbox_version_file": ".vbox_version",
+      "guest_additions_mode": "disable",
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--memory", "{{ user `memory_size` }}"],
+        ["modifyvm", "{{.Name}}", "--cpus", "{{ user `cpus` }}"]
+      ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "sudo -E sh '{{.Path}}'",
+      "script": "scripts/postinstall.sh"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "output": "nixos-stable-x86_64-{{.Provider}}.box"
+    }
+  ]
+}
