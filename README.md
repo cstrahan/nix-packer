@@ -1,6 +1,6 @@
 # About
 
-This is a [Packer](packer.io) definition for [NixOS](nixos.org). It
+This is a [Packer](http://packer.io) definition for [NixOS](http://nixos.org). It
 builds a [Vagrant](http://www.vagrantup.com/) box for NixOS 14.12
 x86_64.
 
@@ -40,7 +40,7 @@ pass to Packer:
   to 2000).
 * `graphical` - Set this to true to get a graphical desktop
 
-There are also a couple variables that only effect the build:
+There are also a couple variables that only affect the build:
 
 * `memmory_size` - The amount of RAM in megabytes (defaults to 1024).
 * `cpus` - The number of CPUs (defaults to 1).
