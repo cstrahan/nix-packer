@@ -3,6 +3,9 @@
 {
   # Creates a "vagrant" user with password-less sudo access.
   users = {
+    # Disable mutable users so we don't get prompted for password at install time
+    mutableUsers = false;
+
     extraGroups = [ { name = "vagrant"; } { name = "vboxsf"; } ];
     extraUsers  = [
       {

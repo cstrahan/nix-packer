@@ -1,13 +1,9 @@
 set -e
 set -x
 
-nix-channel --remove nixos
-nix-channel --add $NIXOS_CHANNEL nixos
-nix-channel --update
-
 # Assuming a single disk (/dev/sda).
 MB="1048576"
-DISK_SIZE=`fdisk -l | grep ^Disk | awk -F" "  '{ print $5 }'`
+DISK_SIZE=`fdisk -l | grep ^Disk | grep -v loop | awk -F" "  '{ print $5 }'`
 DISK_SIZE=$(($DISK_SIZE / $MB))
 
 # Create partitions.
@@ -49,17 +45,16 @@ nixos-generate-config --root /mnt
 curl http://$HTTP_IP:$HTTP_PORT/configuration.nix > /mnt/etc/nixos/configuration.nix
 curl http://$HTTP_IP:$HTTP_PORT/guest.nix > /mnt/etc/nixos/guest.nix
 curl http://$HTTP_IP:$HTTP_PORT/graphical.nix > /mnt/etc/nixos/graphical.nix
+curl http://$HTTP_IP:$HTTP_PORT/text.nix > /mnt/etc/nixos/text.nix
 curl http://$HTTP_IP:$HTTP_PORT/users.nix > /mnt/etc/nixos/users.nix
 curl http://$HTTP_IP:$HTTP_PORT/vagrant-hostname.nix > /mnt/etc/nixos/vagrant-hostname.nix
 curl http://$HTTP_IP:$HTTP_PORT/vagrant-network.nix > /mnt/etc/nixos/vagrant-network.nix
 
 if [ -z "$GRAPHICAL" ]; then
-  sed -i '/graphical\.nix/d' /mnt/etc/nixos/configuration.nix
+  sed -i 's/graphical\.nix/text.nix/' /mnt/etc/nixos/configuration.nix
 fi
 
 nixos-install
-
-printf "%s nixos" "$NIXOS_CHANNEL" > /mnt/root/.nix-channels
 
 sleep 2
 reboot -f
