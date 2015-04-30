@@ -2,7 +2,7 @@
 
 {
   # Enable guest additions.
-  services.virtualbox.enable = true;
+  services.virtualboxGuest.enable = true;
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
