@@ -7,7 +7,7 @@ nix-channel --update
 
 # Assuming a single disk (/dev/sda).
 MB="1048576"
-DISK_SIZE=`fdisk -l | grep ^Disk | awk -F" "  '{ print $5 }'`
+DISK_SIZE=$(fdisk -l | grep ^Disk | awk -F" "  '{ print $5 }')
 DISK_SIZE=$(($DISK_SIZE / $MB))
 
 # Create partitions.
